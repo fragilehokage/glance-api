@@ -5,7 +5,12 @@ import ResponseTab from "./ResponseTab";
 import HeadersTab from "./HeadersTab";
 import HistoryTab from "./HistoryTab";
 
-const ResponsePanel = ({ response }) => {
+const ResponsePanel = ({
+  response,
+  history,
+  setMethod,
+  setUrl,
+}) => {
   const [activeTab, setActiveTab] = useState("response");
 
   return (
@@ -41,7 +46,11 @@ const ResponsePanel = ({ response }) => {
       )}
 
       {activeTab === "history" && (
-        <HistoryTab />
+        <HistoryTab
+        history={history}
+        setMethod={setMethod}
+        setUrl={setUrl}
+        />
       )}
     </section>
   );

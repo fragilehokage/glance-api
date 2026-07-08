@@ -38,12 +38,12 @@ const [history, setHistory] = useLocalStorage(
 
         <MetricsSection response={response} />
 
-        <ResponsePanel
-            response={response}
-            history={history}
-            setMethod={setMethod}
-            setUrl={setUrl}
-        />
+       <ResponsePanel
+        response={response}
+        history={history}
+        setMethod={setMethod}
+        setUrl={setUrl}
+      />
       </main>
     </div>
   );
