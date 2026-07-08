@@ -1,16 +1,79 @@
-# React + Vite
+# GlanceAPI | API Testing Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GlanceAPI is a lightweight API testing tool built with React and Vite. It allows users to send API requests, inspect JSON responses, analyze response metrics, and manage request history through a simple and clean interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Send GET requests to REST APIs
+- View formatted JSON responses
+- Inspect response headers
+- View response status, response time, and response size
+- Persistent request history using Local Storage
+- Replay previous requests
+- Copy response to clipboard
+- Download response as JSON
+- Clear request history
+- Responsive UI
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Axios
+- Tailwind CSS
+- React Hot Toast
+- Lucide React
 
-## Expanding the ESLint configuration
+## Folder Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── components/
+├── hooks/
+├── pages/
+├── services/
+├── utils/
+├── App.jsx
+└── main.jsx
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/fragilehokage/glance-api.git
+```
+
+Go to the project folder:
+
+```bash
+cd glance-api
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## Future Improvements
+
+- Support POST, PUT, PATCH, and DELETE requests
+- Request body editor
+- Authentication headers
+- Request collections
+- Export requests as cURL
+- Deploy the application
+
+## Author
+
+**Sameer**
+
+GitHub: https://github.com/fragilehokage
