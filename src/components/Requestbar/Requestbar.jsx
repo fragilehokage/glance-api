@@ -1,6 +1,7 @@
 import MethodDropdown from "./MethodDropdown";
 import UrlInput from "./UrlInput";
 import SendButton from "./SendButton";
+import formatTime from "../../utils/formatTime";
 
 import { sendRequest } from "../../services/api";
 
@@ -12,6 +13,8 @@ const RequestBar = ({
   loading,
   setLoading,
   setResponse,
+  history,
+  setHistory,
 }) => {
   const handleRequest = async () => {
     if (!url.trim()) return;
@@ -24,6 +27,26 @@ const RequestBar = ({
     });
 
     setResponse(result);
+
+    if (result.success) {
+      setHistory((prev) => {
+  const filtered = prev.filter(
+    (item) => !(item.method === method && item.url === url)
+  );
+
+
+  return [
+    {
+      id: Date.now(),
+      method,
+      url,
+      status: result.status,
+      time: formatTime(),
+    },
+    ...filtered,
+  ].slice(0, 15);
+});
+    }
 
     setLoading(false);
   };

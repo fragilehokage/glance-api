@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import useLocalStorage from "../hooks/useLocalStorage";
 import Navbar from "../components/Navbar/Navbar";
 import RequestBar from "../components/RequestBar/RequestBar";
 import MetricsSection from "../components/MetricsSection/MetricsSection";
@@ -9,8 +9,12 @@ const Home = () => {
   const [method, setMethod] = useState("GET");
   const [url, setUrl] = useState("");
   const [response, setResponse] = useState(null);
-  const [loading, setLoading] = useState(false);
+ const [loading, setLoading] = useState(false);
 
+const [history, setHistory] = useLocalStorage(
+  "glance-history",
+  []
+);
   useEffect(() => {
     console.log("Response State:", response);
   }, [response]);
@@ -25,14 +29,21 @@ const Home = () => {
           setMethod={setMethod}
           url={url}
           setUrl={setUrl}
-          setResponse={setResponse}
           loading={loading}
           setLoading={setLoading}
-        />
+          setResponse={setResponse}
+          history={history}
+          setHistory={setHistory}
+      />
 
         <MetricsSection response={response} />
 
-        <ResponsePanel response={response} />
+        <ResponsePanel
+            response={response}
+            history={history}
+            setMethod={setMethod}
+            setUrl={setUrl}
+        />
       </main>
     </div>
   );
