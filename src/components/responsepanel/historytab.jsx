@@ -1,8 +1,8 @@
 const HistoryTab = () => {
   return (
-    <div className="flex h-80 items-center justify-center rounded-b-xl bg-slate-900">
+    <div className="flex h-96 items-center justify-center">
       <p className="text-slate-500">
-        Request history will appear here...
+        Request history coming soon...
       </p>
     </div>
   );

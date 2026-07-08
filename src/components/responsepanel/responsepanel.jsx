@@ -6,47 +6,43 @@ import HeadersTab from "./HeadersTab";
 import HistoryTab from "./HistoryTab";
 
 const ResponsePanel = ({ response }) => {
-  const [activeTab, setActiveTab] = useState("Response");
-
-  const renderTab = () => {
-    switch (activeTab) {
-      case "Headers":
-        return <HeadersTab />;
-
-      case "History":
-        return <HistoryTab />;
-
-      default:
-        return<ResponseTab response={response} />;
-    }
-  };
+  const [activeTab, setActiveTab] = useState("response");
 
   return (
-    <section className="mx-auto mt-8 max-w-6xl overflow-hidden rounded-2xl border border-slate-700 bg-slate-950">
-
+    <section className="mx-auto mt-8 max-w-6xl overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
       <div className="flex border-b border-slate-700">
 
         <TabButton
-          label="Response"
-          active={activeTab === "Response"}
-          onClick={() => setActiveTab("Response")}
+          title="Response"
+          active={activeTab === "response"}
+          onClick={() => setActiveTab("response")}
         />
 
         <TabButton
-          label="Headers"
-          active={activeTab === "Headers"}
-          onClick={() => setActiveTab("Headers")}
+          title="Headers"
+          active={activeTab === "headers"}
+          onClick={() => setActiveTab("headers")}
         />
 
         <TabButton
-          label="History"
-          active={activeTab === "History"}
-          onClick={() => setActiveTab("History")}
+          title="History"
+          active={activeTab === "history"}
+          onClick={() => setActiveTab("history")}
         />
 
       </div>
 
-      {renderTab()}
+      {activeTab === "response" && (
+        <ResponseTab data={response?.data} />
+      )}
+
+      {activeTab === "headers" && (
+        <HeadersTab headers={response?.headers} />
+      )}
+
+      {activeTab === "history" && (
+        <HistoryTab />
+      )}
     </section>
   );
 };
