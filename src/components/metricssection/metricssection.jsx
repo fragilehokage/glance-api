@@ -35,7 +35,7 @@ const MetricsSection = ({ response }) => {
         title="Response Time"
         value={
           response
-            ? `${response.time} ms`
+            ? `${response.status || ""} ${response.statusText || ""}`.trim()
             : "---"
         }
         color="bg-yellow-500/10"

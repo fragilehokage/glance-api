@@ -8,6 +8,7 @@ import HistoryTab from "./HistoryTab";
 const ResponsePanel = ({
   response,
   history,
+  setHistory,
   setMethod,
   setUrl,
 }) => {
@@ -48,9 +49,10 @@ const ResponsePanel = ({
 
       {activeTab === "history" && (
         <HistoryTab
-          history={history}
-          setMethod={setMethod}
-          setUrl={setUrl}
+            history={history}
+            setHistory={setHistory}
+            setMethod={setMethod}
+            setUrl={setUrl}
         />
       )}
     </section>

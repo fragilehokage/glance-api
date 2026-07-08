@@ -1,7 +1,7 @@
 import JsonView from "@uiw/react-json-view";
 
 const ResponseTab = ({ data }) => {
-  if (!data) {
+  if (data === null || data === undefined) {
     return (
       <div className="flex h-96 items-center justify-center">
         <p className="text-slate-500">

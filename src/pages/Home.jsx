@@ -41,6 +41,7 @@ const [history, setHistory] = useLocalStorage(
        <ResponsePanel
         response={response}
         history={history}
+        setHistory={setHistory}
         setMethod={setMethod}
         setUrl={setUrl}
       />
