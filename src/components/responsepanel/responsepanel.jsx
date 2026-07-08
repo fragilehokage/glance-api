@@ -5,7 +5,7 @@ import ResponseTab from "./ResponseTab";
 import HeadersTab from "./HeadersTab";
 import HistoryTab from "./HistoryTab";
 
-const ResponsePanel = () => {
+const ResponsePanel = ({ response }) => {
   const [activeTab, setActiveTab] = useState("Response");
 
   const renderTab = () => {
@@ -17,7 +17,7 @@ const ResponsePanel = () => {
         return <HistoryTab />;
 
       default:
-        return <ResponseTab />;
+        return<ResponseTab response={response} />;
     }
   };
 
